@@ -68,30 +68,30 @@ int main() {
     hmac.Update(message.data(), message.size());
     std::cout << "hmac.Update() completed successfully" << std::endl;
 
-    std::cout << "About to allocate mac buffer..." << std::endl;
-    std::vector<CryptoPP::byte> mac(hmac.DigestSize());
-    std::cout << "mac buffer allocated successfully" << std::endl;
+    // std::cout << "About to allocate mac buffer..." << std::endl;
+    // std::vector<CryptoPP::byte> mac(hmac.DigestSize());
+    // std::cout << "mac buffer allocated successfully" << std::endl;
 
-    std::cout << "About to call hmac.Final()..." << std::endl;
-    hmac.Final(mac.data());
-    std::cout << "hmac.Final() completed successfully" << std::endl;
+    // std::cout << "About to call hmac.Final()..." << std::endl;
+    // hmac.Final(mac.data());
+    // std::cout << "hmac.Final() completed successfully" << std::endl;
 
-    std::cout << "About to convert to hex..." << std::endl;
-    CryptoPP::HexEncoder encoder;
-    encoder.Put(mac.data(), mac.size());
-    encoder.MessageEnd();
+    // std::cout << "About to convert to hex..." << std::endl;
+    // CryptoPP::HexEncoder encoder;
+    // encoder.Put(mac.data(), mac.size());
+    // encoder.MessageEnd();
 
-    CryptoPP::word64 size = encoder.MaxRetrievable();
-    std::cout << "Hex encoder size: " << size << std::endl;
+    // CryptoPP::word64 size = encoder.MaxRetrievable();
+    // std::cout << "Hex encoder size: " << size << std::endl;
 
-    if (size > 0) {
-      std::string computed_signature(size, '\0');
-      encoder.Get(reinterpret_cast<CryptoPP::byte*>(&computed_signature[0]), size);
-      std::cout << "Hex conversion completed successfully" << std::endl;
-      std::cout << "Computed signature: " << computed_signature << std::endl;
-    }
+    // if (size > 0) {
+    //   std::string computed_signature(size, '\0');
+    //   encoder.Get(reinterpret_cast<CryptoPP::byte*>(&computed_signature[0]), size);
+    //   std::cout << "Hex conversion completed successfully" << std::endl;
+    //   std::cout << "Computed signature: " << computed_signature << std::endl;
+    // }
 
-    std::cout << "All HMAC operations completed successfully!" << std::endl;
+    // std::cout << "All HMAC operations completed successfully!" << std::endl;
     return 0;
 
   } catch (const std::exception &e) {
